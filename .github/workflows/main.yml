@@ -6,8 +6,6 @@ on:
       
 jobs:
   update-discussion:
-    if: >-
-      github.event.discussion.category.name == 'General'
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
