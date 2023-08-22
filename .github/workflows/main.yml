@@ -13,7 +13,6 @@ jobs:
 
       - name: Get discussion information
         id: discussion-info
-        run: |
-          echo "disc_ID=$(echo '${{ toJson(github.event) }}')" >> $GITHUB_OUTPUT
+        run: echo "disc_ID=$(echo '${{ toJson(github.event) }}')" >> $GITHUB_OUTPUT
       - name: verify node_id
         run: echo "${{ steps.discussion-info.outputs.disc_ID}}"    
