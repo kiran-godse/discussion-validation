@@ -16,7 +16,7 @@ try {
   const query = `
     query {
       repository(owner: "${github.context.repo.owner}", name: "${github.context.repo.repo}") {
-        discussion(number: ${discussionId}) {
+        discussion(number: discussionNodeId) {
           title
           body
           labels(first: 10) {
