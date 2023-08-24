@@ -20,5 +20,5 @@ jobs:
         uses: Swapnil-Devops/rest-api-demo@main
         with:
           PAT: ${{ secrets.GITHUB_TOKEN }}
-      - name: verify node_id
+      - name: verify Labels
         run: echo "${{ steps.discussion-info.outputs.disc_labels}}"    
