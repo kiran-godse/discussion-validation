@@ -1,0 +1,19 @@
+name: Extract Discussion Info
+description: Extracts information from GitHub discussion and comments
+
+inputs:
+  PAT:
+    description: "GitHub repository token"
+    required: true
+outputs:
+  comment_body:
+    description: "Comment body"
+  disc_ID:
+    description: "Discussion node ID"
+  disc_body:
+    description: "Discussion body"
+  disc_labels:
+    description: "Discussion labels"
+runs:
+  using: node16
+  main: main.js
