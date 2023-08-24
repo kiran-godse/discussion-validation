@@ -3,12 +3,12 @@ const github = require("@actions/github");
 
 try {
   // const commentBody = github.context.payload.comment.body;
-  const discussionId = github.context.payload.discussion.id;
+  const discussionNum = github.context.payload.discussion.number;
   const discussionNodeId = github.context.payload.discussion.node_id;
   const discussionBody = github.context.payload.discussion.body;
 
   // console.log(`Comment Body: ${commentBody}`);
-  console.log(`Discussion ID: ${discussionId}`);
+  console.log(`Discussion number: ${discussionNum}`);
   console.log(`Discussion Node ID: ${discussionNodeId}`);
   console.log(`Discussion Body: ${discussionBody}`);
 
@@ -16,7 +16,7 @@ try {
   const query = `
     query {
       repository(owner: "${github.context.repo.owner}", name: "${github.context.repo.repo}") {
-        discussion(number: discussionNodeId) {
+        discussion(number: ${discussionNum}) {
           title
           body
           labels(first: 10) {
