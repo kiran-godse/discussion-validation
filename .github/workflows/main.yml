@@ -2,10 +2,14 @@
 name: Discussion on Comment
 
 on:
-   workflow_dispatch: 
+  discussion:
+    types:
+      - created 
       
 jobs:
-  update-discussion:
+  triage:
+    if: >-
+      github.event.discussion.category.name == 'General'
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
@@ -13,6 +17,8 @@ jobs:
 
       - name: Get discussion information
         id: discussion-info
-        run: echo "disc_ID=${{ toJson(github.event) }}" >> $GITHUB_OUTPUT
+        uses: Swapnil-Devops/rest-api-demo@main
+        with:
+          PAT: ${{ secrets.GITHUB_TOKEN }}
       - name: verify node_id
-        run: echo "${{ steps.discussion-info.outputs.disc_ID}}"    
+        run: echo "${{ steps.discussion-info.outputs.disc_labels}}"    
