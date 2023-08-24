@@ -41,7 +41,7 @@ try {
     console.log("Discussion Labels:", discussionLabels);
 
     // Set an output for the comment body, discussion ID, discussion body, and labels
-    core.setOutput("comment_body", commentBody);
+    // core.setOutput("comment_body", commentBody);
     core.setOutput("disc_ID", discussionNodeId);
     core.setOutput("disc_body", discussionBody);
     core.setOutput("disc_labels", discussionLabels.join(", "));
